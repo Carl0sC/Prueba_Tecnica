@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="header">
+    <h2>📊 Ventas</h2>
+    <a routerLink="/ventas/nuevo" class="btn btn-nuevo">+ Nueva venta</a>
+  </div>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <table class="table" *ngIf="ventas.length">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Producto</th>
+        <th>Vendedor</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+        <th>Acciones</th> <!-- columna para botones -->
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let v of ventas">
+        <td>{{ v.id }}</td>
+        <td>{{ v.producto }}</td>
+        <td>{{ v.vendedor }}</td>
+        <td>{{ v.cantidad }}</td>
+        <td>{{ v.total | currency:'COP':'symbol':'1.0-0' }}</td>
+        <td>
+          <!-- botón eliminar dentro de la fila -->
+          <button 
+            class="btn-eliminar" 
+            (click)="eliminarVenta(v.id!)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!ventas.length">No hay ventas registradas.</p>
+
+</div>

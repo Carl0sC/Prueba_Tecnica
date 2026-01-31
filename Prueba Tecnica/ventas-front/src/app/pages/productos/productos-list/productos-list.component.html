@@ -1,0 +1,29 @@
+<div class="productos-container">
+  <h2>Productos</h2>
+
+  <div class="acciones">
+    <button class="btn-nuevo" routerLink="/productos/nuevo">Nuevo Producto</button>
+  </div>
+
+  <table class="productos-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productos">
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.precio | currency:'COP':'symbol':'1.0-0' }}</td>
+        <td>{{ p.stock }}</td>
+        <td>
+          <button class="btn-editar" [routerLink]="['/productos/editar', p.id]">Editar</button>
+          <button class="btn-eliminar" (click)="eliminar(p.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>🧾 Nueva Venta</h2>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+
+    <label>Producto</label>
+    <select formControlName="producto_id">
+      <option value="" disabled selected>Seleccione un producto</option>
+      <option *ngFor="let p of productos" [value]="p.id">
+        {{ p.nombre }} - Stock: {{ p.stock }}
+      </option>
+    </select>
+
+    <label>Vendedor</label>
+    <select formControlName="vendedor_id">
+      <option value="" disabled selected>Seleccione un vendedor</option>
+      <option *ngFor="let v of vendedores" [value]="v.id">
+        {{ v.nombre }}
+      </option>
+    </select>
+
+    <label>Cantidad</label>
+    <input type="number" formControlName="cantidad">
+
+    <button type="submit">Guardar</button>
+  </form>
+</div>

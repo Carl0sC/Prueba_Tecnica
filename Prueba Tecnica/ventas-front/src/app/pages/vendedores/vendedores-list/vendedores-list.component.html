@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Lista de Vendedores</h2>
+
+  <button class="btn primary" (click)="nuevo()">Nuevo Vendedor</button>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <table *ngIf="vendedores.length > 0">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Activo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of vendedores">
+        <td>{{ v.nombre }}</td>
+        <td>{{ v.correo }}</td>
+        <td>{{ v.activo ? 'Sí' : 'No' }}</td>
+        <td>
+          <button class="btn edit" (click)="editar(v.id)">Editar</button>
+          <button class="btn delete" (click)="eliminar(v.id)">
+            {{ v.activo ? 'Desactivar' : 'Activar' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="vendedores.length === 0">No hay vendedores disponibles.</p>
+</div>

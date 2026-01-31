@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>{{ id ? 'Editar vendedor' : 'Nuevo vendedor' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+
+    <!-- Nombre -->
+    <label>Nombre</label>
+    <input type="text" formControlName="nombre">
+    <p class="error" *ngIf="form.get('nombre')?.touched && form.get('nombre')?.hasError('required')">
+      El nombre es obligatorio.
+    </p>
+
+    <!-- Correo -->
+    <label>Correo</label>
+    <input type="email" formControlName="correo">
+    <p class="error" *ngIf="form.get('correo')?.touched && form.get('correo')?.hasError('required')">
+      El correo es obligatorio.
+    </p>
+    <p class="error" *ngIf="form.get('correo')?.touched && form.get('correo')?.hasError('email')">
+      El correo no es válido.
+    </p>
+    <p class="error" *ngIf="form.get('correo')?.touched && form.get('correo')?.hasError('correoExiste')">
+      Este correo ya está registrado.
+    </p>
+
+    <!-- Error general -->
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+    <button class="btn primary" type="submit" [disabled]="form.invalid">Guardar</button>
+  </form>
+</div>
