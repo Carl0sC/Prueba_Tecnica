@@ -1,0 +1,43 @@
+# Proyecto Ventas Front & Back
+
+Este proyecto consiste en un frontend y un backend para la gestión de ventas. Aquí se explica cómo instalar y ejecutar el proyecto correctamente.
+
+## Requisitos
+
+- Node.js >= 16
+- npm o yarn
+- Java >= 11 (si tu backend es Java)
+- Base de datos ( PostgreSQL )
+- Git
+
+## Instalación
+
+1. Clonar el repositorio:
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd <nombre-del-repositorio>
+
+2 Instalar dependencias del frontend
+cd ventas-front
+npm install
+
+Instalar dependencias del backend:
+
+cd ../back/backend
+npm install       
+
+
+IMPORTANTE en db
+editar estos datos segun los el usuario 
+
+import pkg from "pg";
+const { Pool } = pkg;
+
+const pool = new Pool({
+  host: "localhost", 
+  user: "postgres",
+  password: "123456", ---> este 
+  database: "ventasdb", -- > bd se encuentra en BASES DE DATOS para que se importe 
+  port: 5432
+});
