@@ -41,3 +41,8 @@ const pool = new Pool({
   database: "ventasdb", -- > bd se encuentra en BASES DE DATOS para que se importe 
   port: 5432
 });
+
+
+para revisar el api y sus respectivas llamadas 
+
+http://localhost:3000/api-docs/#/default/get_ventas
