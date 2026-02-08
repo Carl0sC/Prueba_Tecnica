@@ -6,7 +6,6 @@ Este proyecto consiste en un frontend y un backend para la gestión de ventas. A
 
 - Node.js >= 16
 - npm o yarn
-- Java >= 11 (si tu backend es Java)
 - Base de datos ( PostgreSQL )
 - Git
 
